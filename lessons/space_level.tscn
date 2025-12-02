@@ -1,11 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://btkjymc78ap8d"]
+[gd_scene load_steps=5 format=3 uid="uid://btkjymc78ap8d"]
 
 [ext_resource type="PackedScene" uid="uid://dmv50krf4bo5r" path="res://lessons/ship.tscn" id="2_2j1u5"]
 [ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="3_e6xy1"]
+[ext_resource type="PackedScene" uid="uid://o1ca06m0k4bk" path="res://lessons/health_pack.tscn" id="3_etm7e"]
+[ext_resource type="PackedScene" uid="uid://4clsvdvuyocx" path="res://lessons/gem.tscn" id="5_kd2gs"]
 
 [node name="Level" type="Node2D"]
 
-[node name="Ship" parent="." instance=ExtResource("2_2j1u5")]
+[node name="Ship" parent="." groups=["gem", "healing_item"] instance=ExtResource("2_2j1u5")]
 position = Vector2(946, 546)
 
 [node name="SpaceBackground" parent="." instance=ExtResource("3_e6xy1")]
+
+[node name="HealthPack" parent="." instance=ExtResource("3_etm7e")]
+position = Vector2(1506, 533)
+
+[node name="HealthPack2" parent="." instance=ExtResource("3_etm7e")]
+position = Vector2(1287, 878)
+
+[node name="HealthPack3" parent="." groups=["gem"] instance=ExtResource("3_etm7e")]
+position = Vector2(370, 408)
+
+[node name="Gem" parent="." instance=ExtResource("5_kd2gs")]
+position = Vector2(1659, 298)
+
+[node name="Gem2" parent="." instance=ExtResource("5_kd2gs")]
+position = Vector2(469, 657)
+
+[node name="Gem3" parent="." instance=ExtResource("5_kd2gs")]
+position = Vector2(871, 188)
