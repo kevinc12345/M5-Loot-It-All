@@ -1,28 +1,33 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmv50krf4bo5r"]
 
-[ext_resource type="Script" uid="uid://24ln0ahcx7f8" path="res://assets/Item.gd" id="1_h3paj"]
 [ext_resource type="Texture2D" uid="uid://bniyrxn3r2v8h" path="res://assets/ship.png" id="3_pdppw"]
+[ext_resource type="Script" uid="uid://bwkr2t4ku15qq" path="res://lessons/ship.gd" id="4_p1sls"]
 [ext_resource type="Texture2D" uid="uid://d0bh8am2qd005" path="res://assets/gem_icon.png" id="5_h3paj"]
 [ext_resource type="PackedScene" uid="uid://dgf54k70yiiff" path="res://assets/ship_visual_effects/main_thruster/main_thruster.tscn" id="5_q7c3l"]
 [ext_resource type="PackedScene" uid="uid://bklom8bhpxg4h" path="res://assets/ship_visual_effects/side_thruster/side_thruster.tscn" id="6_1updt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xifn"]
-radius = 49.497475
+radius = 42.190044
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xifn"]
-bg_color = Color(0.3200456, 0.6934147, 0.38969946, 1)
+bg_color = Color(0.62352943, 0.8666667, 0.31764707, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="LabelSettings" id="LabelSettings_2s445"]
+[sub_resource type="LabelSettings" id="LabelSettings_h3paj"]
 font_size = 20
 outline_size = 8
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 
 [node name="Ship" type="Area2D"]
+<<<<<<< HEAD
+script = ExtResource("4_p1sls")
+=======
+collision_mask = 2
 script = ExtResource("1_h3paj")
+>>>>>>> 0699983f6b9d5e204158f51de89aba1019a46871
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_pdppw")
@@ -31,43 +36,43 @@ texture = ExtResource("3_pdppw")
 position = Vector2(-33, 0)
 points = PackedVector2Array(0, 0, 33.333332, 0, 66.666664, 0)
 
-[node name="SideThruster2" parent="Sprite2D" instance=ExtResource("6_1updt")]
-position = Vector2(-45, 19)
-rotation = 1.36715
-
 [node name="SideThruster" parent="Sprite2D" instance=ExtResource("6_1updt")]
 position = Vector2(-44, -21)
 rotation = 1.74987
 
+[node name="SideThruster2" parent="Sprite2D" instance=ExtResource("6_1updt")]
+position = Vector2(-45, 19)
+rotation = 1.36715
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5xifn")
 
-[node name="UI" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HealthBar" type="ProgressBar" parent="UI"]
+[node name="HealthBar" type="ProgressBar" parent="Control"]
 layout_mode = 0
-offset_left = -48.0
-offset_top = -78.0
-offset_right = 50.0
-offset_bottom = -67.0
+offset_left = -44.0
+offset_top = -67.0
+offset_right = 41.0
+offset_bottom = -60.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_5xifn")
-value = 50.0
+value = 90.0
+rounded = true
 show_percentage = false
 
-[node name="Sprite2D" type="Sprite2D" parent="UI"]
-position = Vector2(-25, -111)
-scale = Vector2(0.643, 0.75)
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(-32, -95.00001)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_h3paj")
 
-[node name="GemCount" type="Label" parent="UI"]
+[node name="GemCount" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = -124.0
-offset_right = 39.0
-offset_bottom = -101.0
-text = "x0"
-label_settings = SubResource("LabelSettings_2s445")
+offset_top = -105.0
+offset_right = 40.0
+offset_bottom = -82.0
+text = "0"
+label_settings = SubResource("LabelSettings_h3paj")
