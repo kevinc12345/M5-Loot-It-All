@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-extends Node2D
-
-func _ready() -> void:
-	get_node("Timer").timeout.connect(_on_timer_timeout)
-
-func _on_timer_timeout() -> void:
-pass
-	
-	var item_scenes := [
-	preload("gem.tscn"),
-	preload("health_pack.tscn")
-]
-=======
 
 extends Node2D
 
@@ -35,4 +21,3 @@ func _on_timer_timeout() -> void:
 	random_position.x = randf_range(0.0, viewport_size.x)
 	random_position.y = randf_range(0.0, viewport_size.y)
 	item_instance.position = random_position
->>>>>>> 0699983f6b9d5e204158f51de89aba1019a46871
